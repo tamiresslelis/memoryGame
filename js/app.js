@@ -182,7 +182,7 @@ $(document).ready(function () {
             var estrelas = 3;
         }
         $('.popup').html("Você ganhou com o número " + movimentos + " movimentos." + "<br> Com o tempo " + tempo + "<br> Com  " + estrelas + " estrela(s)! <br> Borá jogar novamente?" + "<button id='quero'>Sim</button>");
-        $('.modal-container').css('display', 'block');
+        $('.modal').css('display', 'block');
         $('#quero').on('click', function () { reiniciar(); });
         tempo.stopTimer();
     }
