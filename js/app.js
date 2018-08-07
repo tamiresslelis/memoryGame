@@ -102,11 +102,11 @@ $(document).ready(function () {
         movimentos = 0;
         $('.movimentos').html(movimentos);
         tempo.stopTimer();
-        $('#timer').text("Tempo: 00:00 ");
+        $('#tempo').text("Tempo: 00:00 ");
         criarCards();
-        $('#star1').show();
-        $('#star2').show();
-        $('#star3').show();
+        $('#s1').show();
+        $('#s2').show();
+        $('#s3').show();
         addEventHandler();
     }
 
@@ -126,8 +126,6 @@ $(document).ready(function () {
                 if (abrirCartas[0] !== $(this).attr('id')) {
                     abrirCartas.push($(this).attr('id'));
                     Estrelas();
-                    //console.log(abrirCartas[0]);
-                    //console.log(abrirCartas[1]);
                     IncrementaNumeroMovimentos();
                     var isso = $(this);
                     mostrarAbrir(isso);
@@ -199,33 +197,33 @@ $(document).ready(function () {
 
 
 
-function Timer(minutes, seconds) {
-    this.minutes = minutes;
-    this.seconds = seconds;
-    var interval;
+function Timer(minutos, segundos) {
+    this.minutos = minutos;
+    this.segundos = segundos;
+    let intervalo;
 }
 
 Timer.prototype.startTimer = function () {
-    var minutes = this.minutes;
-    var seconds = this.seconds;
+    var minutos = this.minutos;
+    var segundos = this.segundos;
 
-    interval = setInterval(function () {
-        if (seconds == 60) {
-            minutes++;
-            seconds = 0;
+    intervalo = setintervalo(function () {
+        if (segundos == 60) {
+            minutos++;
+            segundos = 0;
         }
 
-        fminutes = minutes < 10 ? "0" + minutes : minutes;
-        fseconds = seconds < 10 ? "0" + seconds : seconds;
+        fminutos = minutos < 10 ? "0" + minutos : minutos;
+        fsegundos = segundos < 10 ? "0" + segundos : segundos;
 
-        $('#timer').text("Tempo: " + fminutes + ":" + fseconds);
-        seconds++;
+        $('#timer').text("Tempo: " + fminutos + ":" + fsegundos);
+        segundos++;
 
     }, 1000);
 }
 
 Timer.prototype.stopTimer = function () {
-    clearInterval(interval);
+    clearintervalo(intervalo);
 }
 
 
