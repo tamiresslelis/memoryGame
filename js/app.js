@@ -2,15 +2,12 @@ $(document).ready(function () {
 
     let tempo = new Timer(0, 0);
 
-    /*
-     * Create a list that holds all of your cards
-     */
-
+    
     let cards = [];
     for (i = 0; i < 16; i++) {
         cards.push({ name: "card" + i, html: "<li class='card' id='abacaxi'><i class='placeholder'></i></li>" });
     }
-
+/*or let use? */
     var i = 0;
     for (card of cards) {
         var cardHtml = card.html;
