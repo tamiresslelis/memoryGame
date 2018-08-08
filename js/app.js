@@ -94,12 +94,12 @@ $(document).ready(function () {
    
    
 
-   
+   // seta de reiniciar o jogo!
     function reiniciar() {
         movimentos = 0;
         $('.movimentos').html(movimentos);
         tempo.stopTimer();
-        $('#tempo').text("Tempo: 00:00 ");
+        $('#timer').text("Tempo: 00:00 ");
         criarCards();
         $('#s1').show();
         $('#s2').show();
@@ -168,8 +168,9 @@ $(document).ready(function () {
         }
     }
 
+    //Função chamada quando ganha
     function ganhou() {
-        var tempo = $('#tempo').text();
+        var tempo = $('#timer').text();
         if (movimentos >= 20) {
             var estrelas = 1;
         } else if (movimentos >= 10) {
