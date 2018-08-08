@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
-    let tempo = new Timer(0, 0);
+    var tempo = new Timer(0, 0);
 
-    
-    let cards = [];
+    /*Cria a lista de cards */
+    let cards = Array();
     for (i = 0; i < 16; i++) {
         cards.push({ name: "card" + i, html: "<li class='card' id='abacaxi'><i class='placeholder'></i></li>" });
     }
-/*or let use? */
+
     var i = 0;
     for (card of cards) {
         var cardHtml = card.html;
@@ -111,7 +111,8 @@ $(document).ready(function () {
         reiniciar();
     })
 
-    
+    //Adiciona eventhandler para o evento on click na carta e chama os demais metódos
+
     let abrirCartas = [];
     let clickDisabled = false;
     function addEventHandler() {
@@ -168,7 +169,7 @@ $(document).ready(function () {
     }
 
     function ganhou() {
-        var tempo = $('#timer').text();
+        var tempo = $('#tempo').text();
         if (movimentos >= 20) {
             var estrelas = 1;
         } else if (movimentos >= 10) {
@@ -183,44 +184,10 @@ $(document).ready(function () {
     }
     addEventHandler();
 
-    
+    //esconde o modal com o evento on click
     $('.modal').on('click', function () {
         $('.modal').css('display', 'none');
 
     })
 
 });
-
-
-
-
-function Timer(minutos, segundos) {
-    this.minutos = minutos;
-    this.segundos = segundos;
-    let intervalo;
-}
-
-Timer.prototype.startTimer = function () {
-    var minutos = this.minutos;
-    var segundos = this.segundos;
-
-    intervalo = setintervalo(function () {
-        if (segundos == 60) {
-            minutos++;
-            segundos = 0;
-        }
-
-        fminutos = minutos < 10 ? "0" + minutos : minutos;
-        fsegundos = segundos < 10 ? "0" + segundos : segundos;
-
-        $('#timer').text("Tempo: " + fminutos + ":" + fsegundos);
-        segundos++;
-
-    }, 1000);
-}
-
-Timer.prototype.stopTimer = function () {
-    clearintervalo(intervalo);
-}
-
-

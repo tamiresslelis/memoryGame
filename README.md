@@ -1,17 +1,23 @@
 # Memory Game Project
 
-## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+Jogo da memória utilizando css, html e javascript com jquery.
+Esse jogo é um projeto  para o Nanodegree de Desenvolvimento Web da Udacity.
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Instruções
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Para iniciar o jogo é preciso apenas clicar no arquivo `index.html` e ao clicar numa carta ela é virada para cima.
+
+## Dependências
+
++ https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
++ css/app.css
++ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
++ js/app.js
+
+
 
 ## Contributing
 
