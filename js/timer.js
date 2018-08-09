@@ -9,7 +9,7 @@ Timer.prototype.startTimer = function () {
     var minutos = this.minutos;
     var segundos = this.segundos;
 
-    intervalo = setInterval(function () {
+    interval = setInterval(function () {
         if (segundos == 60) {
             minutos++;
             segundos = 0;

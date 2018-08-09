@@ -60,7 +60,7 @@ $(document).ready(function () {
 
     criarCards();
 
-    
+
 
     function mostrarAbrir(isso) {
         isso.addClass('open');
@@ -91,10 +91,22 @@ $(document).ready(function () {
 
     var movimentos = 0;
 
-   
-   
-
-   // seta de reiniciar o jogo!
+    //Função chamada quando ganha
+    function ganhou() {
+        var tempo = $('#timer').text();
+        if (movimentos >= 20) {
+            var estrelas = 1;
+        } else if (movimentos >= 10) {
+            var estrelas = 2;
+        } else {
+            var estrelas = 3;
+        }
+        $('.popup').html("Você ganhou com o número " + movimentos + " movimentos." + "<br> Com o tempo " + tempo + "<br> Com  " + estrelas + " estrela(s)! <br> Borá jogar novamente?" + "<button id='quero'>Sim</button>");
+        $('.modal').css('display', 'block');
+        $('#quero').on('click', function () { reiniciar(); });
+        tempo.stopTimer();
+    }
+    // seta de reiniciar o jogo!
     function reiniciar() {
         movimentos = 0;
         $('.movimentos').html(movimentos);
@@ -110,6 +122,9 @@ $(document).ready(function () {
     $('.reiniciar').on('click', function () {
         reiniciar();
     })
+
+
+
 
     //Adiciona eventhandler para o evento on click na carta e chama os demais metódos
 
@@ -151,7 +166,7 @@ $(document).ready(function () {
                     if (abrirCartas[0] == abrirCartas[1]) {
                         esconderFechar(listaDeAbrertos[0]);
                         esconderFechar(listaDeAbrertos[1]);
-                        
+
                     }
                     abrirCartas = [];
                 }
@@ -159,30 +174,16 @@ $(document).ready(function () {
         });
     }
 
+    //numero de estrelas
     function Estrelas() {
         if (movimentos >= 20) {
-            $('#star2').hide();
+            $('#s2').hide();
         }
         if (movimentos >= 10) {
-            $('#star3').hide();
+            $('#s3').hide();
         }
     }
 
-    //Função chamada quando ganha
-    function ganhou() {
-        var tempo = $('#timer').text();
-        if (movimentos >= 20) {
-            var estrelas = 1;
-        } else if (movimentos >= 10) {
-            var estrelas = 2;
-        } else {
-            var estrelas = 3;
-        }
-        $('.popup').html("Você ganhou com o número " + movimentos + " movimentos." + "<br> Com o tempo " + tempo + "<br> Com  " + estrelas + " estrela(s)! <br> Borá jogar novamente?" + "<button id='quero'>Sim</button>");
-        $('.modal').css('display', 'block');
-        $('#quero').on('click', function () { reiniciar(); });
-        tempo.stopTimer();
-    }
     addEventHandler();
 
     //esconde o modal com o evento on click
