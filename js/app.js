@@ -143,32 +143,36 @@ $(document).ready(function () {
                     var isso = $(this);
                     mostrarAbrir(isso);
                     IncrementaAbertos(isso);
-                    if (listaDeAbrertos[0].find(':first').attr('class') == listaDeAbrertos[1].find(':first').attr('class')) {
-                        IncrementaEncontrou();
-                        if (encontrou == 8) {
-                            ganhou();
-                        }
-                        listaDeAbrertos = [];
-                        abrirCartas = [];
-                    }
-                    else {
-                        console.log(listaDeAbrertos[0]);
-                        console.log(listaDeAbrertos[1]);
-                        clickDisabled = true;
-                        window.setTimeout(function () {
+                    if (listaDeAbrertos.length > 1) {
+                                    if (listaDeAbrertos[0].find(':first').attr('class') == listaDeAbrertos[1].find(':first').attr('class')) {
+                                        console.log("oi");
+                                        IncrementaEncontrou();
+                                        if (encontrou == 8) {
+                                            ganhou();
+                                        }
+                                        listaDeAbrertos = [];
+                                        abrirCartas = [];
+                                    }
+                                    else {
+                                        console.log(listaDeAbrertos[0]);
+                                        console.log(listaDeAbrertos[1]);
+                                        clickDisabled = true;
+                                        window.setTimeout(function () {
+                                            esconderFechar(listaDeAbrertos[0]);
+                                            esconderFechar(listaDeAbrertos[1]);
+                                            listaDeAbrertos = [];
+                                            abrirCartas = [];
+                                            clickDisabled = false;
+                                        }, 1000);
+                                    }
+                     }else {
+                        if (abrirCartas[0] == abrirCartas[1]) {
                             esconderFechar(listaDeAbrertos[0]);
                             esconderFechar(listaDeAbrertos[1]);
-                            listaDeAbrertos = [];
-                            abrirCartas = [];
-                            clickDisabled = false;
-                        }, 1000);
-                    }
-                    if (abrirCartas[0] == abrirCartas[1]) {
-                        esconderFechar(listaDeAbrertos[0]);
-                        esconderFechar(listaDeAbrertos[1]);
 
+                        }
+                        abrirCartas = [];
                     }
-                    abrirCartas = [];
                 }
             }
         });
