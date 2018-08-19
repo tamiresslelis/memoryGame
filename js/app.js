@@ -93,7 +93,7 @@ $(document).ready(function () {
 
     //Função chamada quando ganha
     function ganhou() {
-        var tempo = $('#timer').text();
+        var tt = $('#timer').text();
         if (movimentos >= 20) {
             var estrelas = 1;
         } else if (movimentos >= 10) {
@@ -101,7 +101,7 @@ $(document).ready(function () {
         } else {
             var estrelas = 3;
         }
-        $('.popup').html("Você ganhou com o número " + movimentos + " movimentos." + "<br> Com o tempo " + tempo + "<br> Com  " + estrelas + " estrela(s)! <br> Borá jogar novamente?" + "<button id='quero'>Sim</button>");
+        $('.popup').html("Você ganhou com o número " + movimentos + " movimentos." + "<br> Com o tempo " + tt + "<br> Com  " + estrelas + " estrela(s)! <br> Borá jogar novamente?" + "<button id='quero'>Sim</button>");
         $('.modal').css('display', 'block');
         $('#quero').on('click', function () { reiniciar(); });
         tempo.stopTimer();
@@ -161,7 +161,7 @@ $(document).ready(function () {
                                             esconderFechar(listaDeAbrertos[0]);
                                             esconderFechar(listaDeAbrertos[1]);
                                             listaDeAbrertos = [];
-                                            abrirCartas = [];
+                                            //abrirCartas = [];
                                             clickDisabled = false;
                                         }, 1000);
                                     }
@@ -171,7 +171,7 @@ $(document).ready(function () {
                             esconderFechar(listaDeAbrertos[1]);
 
                         }
-                        abrirCartas = [];
+                        //abrirCartas = [];
                     }
                 }
             }
