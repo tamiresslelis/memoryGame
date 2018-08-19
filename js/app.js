@@ -151,7 +151,7 @@ $(document).ready(function () {
                                             ganhou();
                                         }
                                         listaDeAbrertos = [];
-                                        abrirCartas = [];
+                                        //abrirCartas = [];
                                     }
                                     else {
                                         console.log(listaDeAbrertos[0]);
@@ -161,7 +161,7 @@ $(document).ready(function () {
                                             esconderFechar(listaDeAbrertos[0]);
                                             esconderFechar(listaDeAbrertos[1]);
                                             listaDeAbrertos = [];
-                                            //abrirCartas = [];
+                                            abrirCartas = [];
                                             clickDisabled = false;
                                         }, 1000);
                                     }
